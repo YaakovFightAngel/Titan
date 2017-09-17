@@ -70,6 +70,9 @@ public class TicketMasterAPI implements ExternalAPI{
 			builder.setItemId(getStringFieldOrNull(event, "id"));
 			builder.setName(getStringFieldOrNull(event, "name"));
 			builder.setDescription(getDescription(event));
+			if(event.isNull("classifications")) {
+				continue;
+			}
 			builder.setCategories(getCategories(event));
 			builder.setImageUrl(getImageUrl(event));
 			builder.setUrl(getStringFieldOrNull(event, "url"));
